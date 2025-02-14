@@ -215,6 +215,21 @@ C:\>debug
 Note: This command sequence is only supported on Atmel AT28C64B EEPROM, it
 won't work on other EEPROMs and will corrupt the EEPROM content instead.
 
+This feature also exists in the AT28C256 EEPROM, and can be activated in a
+slightly different manner:
+
+C:\>debug
+-a
+151D:0100 mov ax,e000
+151D:0103 mov ds,ax
+151D:0105 mov byte [5555],aa
+151D:010A mov byte [2aaa],55
+151D:010F mov byte [5555],a0
+151D:0114 xor cx,cx
+151D:0116 loop 116
+151D:0118 int 20
+-g
+
 TODO
 ====
 
